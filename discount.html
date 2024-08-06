@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>select your membership</h2>
+    <div>
+    <select name="" id="usertype">
+        <option usetype="guest">guest</option>
+        <option usertype="member">member</option>
+        <option usertype="premium member">premium member</option>
+        <option usertype="employee">employee</option>
+        </select>
+    <h2>Select amount</h2>
+    <input type="number" id="amount">
+    <button onclick="info()">submit</button>
+
+    <div id="show"></div>
+    <div id="show2"></div>
+</div>
+
+    <script>
+function info() {
+    
+
+        let usertype = document.getElementById("usertype").value;
+        let amount = parseFloat(document.getElementById("amount").value);
+        
+        let discount;
+        switch (usertype) {
+            case 'guest':
+                discount = 0;
+                break;
+            case 'member':
+                discount = 10;
+                break;
+            case 'premium member':
+                discount = 20;
+                break;
+            case 'employee':
+                discount = 30;
+                break;
+                
+        }
+        document.getElementById("show").innerHTML = "discount for " + usertype + " is " + discount + " % discount" ;
+
+        let total = amount - (amount * discount / 100);
+        document.getElementById("show2").innerHTML = "your total amount is " + total;
+    }
+
+
+    </script>
+</body>
+</html>
